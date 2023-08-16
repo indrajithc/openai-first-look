@@ -5,7 +5,10 @@ import openai
 openai.api_key = os.environ["OPEN_AI_KEY"]
 
  
-user_input = input("Enter text that should be summarized: ")
+input_text = ""
+
+with open ("text.txt", "r") as file:
+  input_text = file.read()
 
 
 response = openai.ChatCompletion.create(
@@ -16,7 +19,7 @@ messages=[{
 },
 {
   "role": "user",
-  "content": user_input
+  "content": input_text
 }],
 temperature=0
 )
