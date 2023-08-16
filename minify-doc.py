@@ -28,3 +28,6 @@ ai_response = response.choices[0].message.content
 
 
 print("Summarized text:\n\n ", ai_response)
+
+with open("summary.txt", "w") as file:
+  file.write(ai_response)
